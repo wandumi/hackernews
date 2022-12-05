@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Welcome
+Route::get('/', 'WelcomeController@index');
+
+// Story Routes
+Route::get('/stories', 'StoryController@index');
+ROute::get('/generate_stories', 'StoryController@store');
