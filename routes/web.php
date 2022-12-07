@@ -18,4 +18,9 @@ Route::get('/', 'WelcomeController@index');
 
 // Story Routes
 Route::get('/stories', 'StoryController@index');
+Route::get('/stories/{id}', 'StoryController@show');
 ROute::get('/generate_stories', 'StoryController@store');
+
+// Comments Routes
+Route::get('/comments', 'CommentController@index');
+ROute::get('/generate_comments', 'CommentController@store');

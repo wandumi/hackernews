@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Story;
+use App\comments;
 use GuzzleHttp\Client;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class StoryController extends Controller
 {
+
     public function index()
     {
 
@@ -57,19 +60,9 @@ class StoryController extends Controller
 
                 $item['kids'] = json_encode($item_data['kids'], true);
 
-                if(!empty($item_data['text']))
-                {
-                    $item['description'] = strip_tags($item_data['text']);
-                } else {
-                    $item['description'] = "Nothing";
-                }
+                $item['description'] = isset($item_data['text']) ? $item_data['text'] : " ";
 
-                if(!empty($item_data['url']))
-                {
-                    $item['url'] = $item_data['url'];
-                } else {
-                    $item['url'] = "Nothing";
-                }
+                $item['url'] = isset($item_data['url']) ? $item_data['url'] : " ";
 
                 $db_item = DB::table('stories')
                     ->where('id', '=', $id)
@@ -93,8 +86,14 @@ class StoryController extends Controller
 
     }
 
-    public function show()
+    public function show($id)
     {
-        //
+        $story = Story::findOrFail($id);
+
+        $comments = comments::where('story_id', $story->id)->get();
+
+        return view('HackerNews.stories.show', compact('story', 'comments'));
     }
+
+
 }
