@@ -1,11 +1,12 @@
 ## About The Application
 
 The application accesses the Hacker News API (stories, comments, best stories) and store them in the database
-
-## How to Install 
+### How to Install 
 
 Clone the project <br />
-Install npm and composer update <br />
+```Install npm ``` and
+```composer update``` 
+
 Duplicate the file .env_example to .env and change the 
 database connections on the following <br /><br />
 ```DB_CONNECTION=mysql```<br />
@@ -25,7 +26,8 @@ Generate the key for the application
 Start the server with
 
 ``php artisan serve``
-## Developer
+
+### Developer
 
 Wandumi Munandi Sichali <br />
 Full Stack Developer 
