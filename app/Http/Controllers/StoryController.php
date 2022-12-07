@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Story;
-use App\comments;
+use App\comment;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +25,7 @@ class StoryController extends Controller
     {
         $client = new Client();
 
-        $endpoint = 'https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty&orderBy="$priority"&limitToFirst=50';
+        $endpoint = 'https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty&orderBy="$priority"&limitToFirst=500';
 
         $response = $client->get($endpoint);
 
@@ -90,7 +90,7 @@ class StoryController extends Controller
     {
         $story = Story::findOrFail($id);
 
-        $comments = comments::where('story_id', $story->id)->get();
+        $comments = comment::where('story_id', $story->id)->get();
 
         return view('HackerNews.stories.show', compact('story', 'comments'));
     }

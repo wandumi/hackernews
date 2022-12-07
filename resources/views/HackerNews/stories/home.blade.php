@@ -78,6 +78,7 @@
                 <div class="container">
                     <h1>Stories</h1>
                     <p class="lead text-muted">
+                        NOTE: The page might take longer, it is generating 500 Database Records
                     </p>
                     <p>
                         <a href="{{ url('/generate_stories') }}" class="btn btn-primary my-2">Generate Stories</a>

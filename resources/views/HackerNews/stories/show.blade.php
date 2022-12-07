@@ -75,7 +75,7 @@
         <div class="entry-content mt-5">
 
             <h2>{{ $story->title }}</h2>
-            <p>{{ $story->description }}</p>
+            <p>{!! $story->description !!} </p>
             <div class="tutsn-in-content-ia-ad" style="margin-left: auto; margin-right: auto; text-align: center; "
                  id="tutsn-1509853161"><script async=""
                                                src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1947469042517205"

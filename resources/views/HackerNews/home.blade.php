@@ -98,7 +98,7 @@
                                 <p class="card-text text-center ">
                                     <a href="{{ url($story->url) }}" target="_blank">{{ $story->title }}</a>
                                 </p>
-                                <a href="#" class="btn btn-outline-secondary btn-sm btn-block text-center">Comments</a>
+                                <a href="{{ url('/stories/'.$story->id )}}" class="btn btn-outline-secondary btn-sm btn-block text-center">Comments</a>
 
                             </div>
                         </div>

@@ -38,7 +38,7 @@ class CommentController extends Controller
             foreach($comment_data as $value)
             {
 
-                $comment_response = $client->get("https://hacker-news.firebaseio.com/v0/item/" . $value . '.json?print=pretty&orderBy="$priority"&limitToFirst=50');
+                $comment_response = $client->get("https://hacker-news.firebaseio.com/v0/item/" . $value . '.json?print=pretty&orderBy="$priority"&limitToFirst=500');
 
                 $comments_data = json_decode($comment_response->getBody(), true);
 
